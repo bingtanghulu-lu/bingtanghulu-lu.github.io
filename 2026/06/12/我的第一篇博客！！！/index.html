@@ -5,19 +5,19 @@
 <meta property="og:site_name" content="病躺糊卢">
 <meta property="og:description" content="今天做了什么 成功在本地搭建了 Hexo 博客 学会了 hexo server –启动Hexo服务hexo new –新建一篇博客 成功推送GitHub  如何发布一篇博客1.先新建一篇博客 Tip：本地预览：hexo server。 2.发布：powershellhexo cleanhexo generatehexo deploy然后就可以访问https:&#x2F;&#x2F;bingtanghulu-lu.gi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bingtanghulu-lu.github.io/img/butterfly-icon.png">
+<meta property="og:image" content="https://bingtanghulu-lu.github.io/img/avatar.jpg">
 <meta property="article:published_time" content="2026-06-12T02:44:17.000Z">
-<meta property="article:modified_time" content="2026-06-12T03:33:28.766Z">
+<meta property="article:modified_time" content="2026-06-12T08:11:15.889Z">
 <meta property="article:author" content="病躺糊卢">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bingtanghulu-lu.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+<meta name="twitter:image" content="https://bingtanghulu-lu.github.io/img/avatar.jpg"><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "我的第一篇博客！！！",
   "url": "https://bingtanghulu-lu.github.io/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/",
-  "image": "https://bingtanghulu-lu.github.io/img/butterfly-icon.png",
+  "image": "https://bingtanghulu-lu.github.io/img/avatar.jpg",
   "datePublished": "2026-06-12T02:44:17.000Z",
-  "dateModified": "2026-06-12T03:33:28.766Z",
+  "dateModified": "2026-06-12T08:11:15.889Z",
   "author": [
     {
       "@type": "Person",
@@ -139,63 +139,203 @@
   isToc: true,
   pageType: 'post'
 }</script><style>
-/* === iOS 液态玻璃全局风格 === */
-body { background: #f2f2f7; }
+/* === 全局背景 === */
+body { background: url('/img/top2.png') center/cover fixed no-repeat !important; }
+#web_bg { display: none; }
 
-/* 顶图：白灰渐变（放图片后自动叠加） */
-#page-header {
-  background: linear-gradient(135deg, #e8e8ed 0%, #d1d1d6 30%, #f2f2f7 70%, #e8e8ed 100%) !important;
+/* 隐藏首页顶部大色块和标题 */
+#page-header.full_page { height: 0 !important; min-height: 0 !important; overflow: hidden; }
+#page-header.full_page #site-info,
+#page-header.full_page #site-title,
+#page-header.full_page #site-subtitle { display: none !important; }
+
+/* 文章/归档/分类等所有内页顶部：透明背景 */
+#page-header.post-bg,
+#page-header:not(.full_page) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#page-header.post-bg #post-info {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  padding: 0;
+  margin: 80px auto 20px;
+  max-width: 720px;
 }
 
-/* 导航栏毛玻璃 */
+/* 导航栏始终固定 */
 #nav {
-  background: rgba(255,255,255,.72) !important;
+  position: fixed !important; top: 0 !important;
+  transform: translateY(0) !important; opacity: 1 !important;
+  background: rgba(255,255,255,.55) !important;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(255,255,255,.3);
 }
+#body-wrap { padding-top: 60px; }
 
-/* 文章卡片 */
-.recent-post-item {
-  background: rgba(255,255,255,.65) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.6);
-  box-shadow: 0 2px 20px rgba(0,0,0,.04);
-}
+/* 布局紧凑 */
+.layout { padding: 16px 10px !important; max-width: 1300px; }
+
+/* 侧边栏靠左 */
+#aside-content { padding-left: 0 !important; padding-right: 10px !important; }
 
 /* 侧边栏卡片 */
 .card-widget {
-  background: rgba(255,255,255,.6) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.5);
-  box-shadow: 0 2px 16px rgba(0,0,0,.04);
+  background: rgba(255,255,255,.45) !important;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px; border: 1px solid rgba(255,255,255,.45);
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+  padding: 16px 20px !important; margin-bottom: 12px !important;
 }
+
+/* 文字可读性增强 */
+.card-widget, .card-widget a, .card-widget span, .card-widget li { color: #1a1a1a !important; }
+.card-archive-list-link { color: #1a1a1a !important; }
+.card-archive-list-link:hover { color: #000 !important; }
+.recent-post-item .article-title a { color: #1a1a1a !important; }
+.recent-post-item .content { color: #3a3a3a !important; opacity: .85; }
+.recent-post-item .article-meta-wrap, .recent-post-item .article-meta-wrap a { color: #2a2a2a !important; }
+#post-info #post-title, #post-info #post-title a { color: #1a1a1a !important; }
+#post-info .post-meta, #post-info .post-meta a, #post-info .post-meta span { color: #4a4a4a !important; }
+#toc .toc-link, #toc .toc-child { color: #2a2a2a !important; }
+#toc .toc-link.active { color: #000 !important; }
+.item-headline { color: #1a1a1a !important; }
+
+/* 侧栏列表项 hover 半透明选中效果 */
+.card-archive-list-item a:hover,
+.aside-list-item:hover { background: rgba(0,0,0,.06); border-radius: 6px; }
+.aside-list-item a { display: block; padding: 2px 6px; border-radius: 4px; transition: background .15s; }
+.aside-list-item a:hover { background: rgba(0,0,0,.06); }
+
+/* 隐藏头像下方文章/标签/分类统计 */
+.card-info .site-data { display: none !important; }
+
+/* 文章正文字体黑色 */
+#article-container, #article-container p, #article-container li,
+#article-container span, .post-content { color: #1a1a1a !important; }
+
+/* 文章内容区卡片 */
+.layout > div:first-child:not(.nc) {
+  background: rgba(255,255,255,.5) !important;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px; border: 1px solid rgba(255,255,255,.5);
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+}
+
+/* 文章卡片紧凑设计 */
+.recent-post-item {
+  background: rgba(255,255,255,.5) !important;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px !important; border: 1px solid rgba(255,255,255,.5) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,.04) !important;
+  height: 9em !important; margin-bottom: 12px !important;
+  transition: all .25s !important;
+}
+.recent-post-item:hover {
+  box-shadow: 0 6px 28px rgba(0,0,0,.08) !important; transform: translateY(-2px);
+}
+
+/* 封面 */
+.recent-post-item .post_cover { width: 36% !important; border-radius: 14px 0 0 14px; overflow: hidden; }
+.recent-post-item .post_cover.right { border-radius: 0 14px 14px 0 !important; }
+
+/* 信息区 */
+.recent-post-item .recent-post-info {
+  padding: 14px 18px !important; width: 64% !important;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* 标题更大靠左上 */
+.recent-post-item .article-title {
+  font-size: 1.4em !important; font-weight: 600 !important;
+  text-align: left !important; margin-bottom: 6px !important;
+  line-height: 1.35 !important; -webkit-line-clamp: 2 !important;
+}
+
+/* 摘要 */
+.recent-post-item .content { -webkit-line-clamp: 1 !important; font-size: .88em !important; opacity: .7; }
+
+/* 元信息 */
+.recent-post-item .article-meta-wrap { margin: 4px 0 !important; font-size: .8em !important; }
 
 /* 页脚 */
 #footer {
-  background: rgba(255,255,255,.45) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(0,0,0,.05);
+  background: rgba(255,255,255,.35) !important; backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,.25);
 }
 
-/* 代码块圆角 */
-figure.highlight, .code-block {
-  border-radius: 12px;
-  overflow: hidden;
+/* 代码块 */
+figure.highlight, .code-block { border-radius: 12px; overflow: hidden; }
+
+/* 归档 */
+.card-archive-year {
+  cursor: pointer; display: flex; align-items: center; padding: 6px 4px;
+  margin: 4px 0; font-weight: 600; font-size: .95em; color: var(--font-color);
+  border-radius: 8px; transition: background .2s; user-select: none; -webkit-user-select: none;
+}
+.card-archive-year:hover { background: rgba(0,0,0,.04); }
+.year-toggle { display: inline-block; width: 18px; font-size: .7em; transition: transform .2s; margin-right: 4px; color: #8E8E93; }
+.year-count { margin-left: auto; font-size: .8em; color: #8E8E93; font-weight: 400; }
+.card-archive-month-list { list-style: none; padding-left: 22px; margin: 2px 0 8px; }
+
+@media (max-width: 768px) {
+  .recent-post-item { height: auto !important; flex-direction: column !important; }
+  .recent-post-item .post_cover { width: 100% !important; height: 180px !important; border-radius: 14px 14px 0 0 !important; }
+  .recent-post-item .post_cover.right { border-radius: 14px 14px 0 0 !important; }
+  .recent-post-item .recent-post-info { width: 100% !important; }
 }
 </style>
-<meta name="generator" content="Hexo 8.1.2"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">病躺糊卢</span></a><a class="nav-page-title" href="/"><span class="site-name">我的第一篇博客！！！</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">我的第一篇博客！！！</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-12T03:33:28.766Z" title="更新于 2026-06-12 11:33:28">2026-06-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="今天做了什么"><a href="#今天做了什么" class="headerlink" title="今天做了什么"></a>今天做了什么</h2><ul>
+<meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/top.png);"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/top.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">病躺糊卢</span></a><a class="nav-page-title" href="/"><span class="site-name">我的第一篇博客！！！</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">我的第一篇博客！！！</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-12T08:11:15.889Z" title="更新于 2026-06-12 16:11:15">2026-06-12</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="今天做了什么"><a href="#今天做了什么" class="headerlink" title="今天做了什么"></a>今天做了什么</h2><ul>
 <li>成功在本地搭建了 Hexo 博客</li>
 <li>学会了 hexo server –启动Hexo服务<br>hexo new –新建一篇博客</li>
 <li>成功推送GitHub</li>
 </ul>
 <h2 id="如何发布一篇博客"><a href="#如何发布一篇博客" class="headerlink" title="如何发布一篇博客"></a>如何发布一篇博客</h2><p>1.先新建一篇博客</p>
 <p>Tip：本地预览：hexo server。</p>
-<p>2.发布：<br>powershell<br>hexo clean<br>hexo generate<br>hexo deploy<br>然后就可以访问<a target="_blank" rel="noopener" href="https://bingtanghulu-lu.github.io就可以查看了/">https://bingtanghulu-lu.github.io就可以查看了</a></p>
+<p>2.发布：<br>powershell<br>hexo clean<br>hexo generate<br>hexo deploy<br>然后就可以访问<a href="https://bingtanghulu-lu.github.io/">https://bingtanghulu-lu.github.io</a> 就可以查看了</p>
 <h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>千里之行始于足下，加油，病躺糊卢！</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://bingtanghulu-lu.github.io">病躺糊卢</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://bingtanghulu-lu.github.io/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/">https://bingtanghulu-lu.github.io/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://bingtanghulu-lu.github.io" target="_blank">病躺糊卢</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/06/12/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">病躺糊卢</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/bingtanghulu-lu"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/bingtanghulu-lu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E5%A4%A9%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">今天做了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2"><span class="toc-number">2.</span> <span class="toc-text">如何发布一篇博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E5%8F%97"><span class="toc-number">3.</span> <span class="toc-text">感受</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a><time datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/hello-world/" title="Hello World">Hello World</a><time datetime="2026-06-12T02:30:54.434Z" title="发表于 2026-06-12 10:30:54">2026-06-12</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 病躺糊卢</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">病躺糊卢</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/bingtanghulu-lu"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/bingtanghulu-lu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E5%A4%A9%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">今天做了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2"><span class="toc-number">2.</span> <span class="toc-text">如何发布一篇博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E5%8F%97"><span class="toc-number">3.</span> <span class="toc-text">感受</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a><time datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 病躺糊卢</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script>
+(function(){
+  var list = document.querySelector('.card-archive-list');
+  if (list) {
+    var items = [].slice.call(list.querySelectorAll('.card-archive-list-item'));
+    if (items.length) {
+      var groups = {};
+      items.forEach(function(item){
+        var a = item.querySelector('a');
+        if (!a) return;
+        var m = a.getAttribute('href').match(/\/archives\/(\d{4})\//);
+        if (!m) return;
+        var y = m[1];
+        if (!groups[y]) groups[y] = [];
+        groups[y].push(item.cloneNode(true));
+      });
+      list.innerHTML = '';
+      var years = Object.keys(groups).sort(function(a,b){ return b-a; });
+      var nowYear = String(new Date().getFullYear());
+      years.forEach(function(year){
+        var li = document.createElement('li');
+        li.className = 'card-archive-list-item card-archive-year';
+        li.innerHTML = '<span class="year-toggle">▼</span><span class="year-text">' + year + ' 年</span><span class="year-count">' + groups[year].length + ' 篇</span>';
+        var ul = document.createElement('ul');
+        ul.className = 'card-archive-month-list';
+        var expanded = (year === nowYear);
+        if (!expanded) ul.style.display = 'none';
+        li.querySelector('.year-toggle').textContent = expanded ? '▼' : '▶';
+        groups[year].forEach(function(m){ ul.appendChild(m); });
+        li.addEventListener('click', function(){
+          var u = this.nextElementSibling;
+          var t = this.querySelector('.year-toggle');
+          if (u.style.display === 'none'){ u.style.display = 'block'; t.textContent = '▼'; }
+          else { u.style.display = 'none'; t.textContent = '▶'; }
+        });
+        list.appendChild(li); list.appendChild(ul);
+      });
+    }
+  }
+})();
+</script>
+<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
