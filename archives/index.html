@@ -255,6 +255,73 @@ body { background: url('/img/top2.png') center/cover fixed no-repeat !important;
 /* 代码块 */
 figure.highlight, .code-block { border-radius: 12px; overflow: hidden; }
 
+/* ====== 代码高亮 VS Code Dark+ 风格 ====== */
+/* 背景 #1e1e1e - VS Code 同款底色 */
+#article-container figure.highlight,
+#article-container figure.highlight table,
+#article-container figure.highlight tr,
+#article-container figure.highlight td,
+#article-container figure.highlight pre,
+#article-container figure.highlight code,
+#article-container figure.highlight .gutter,
+#article-container figure.highlight .code,
+#article-container figure.highlight .highlight-tools,
+#article-container figure.highlight figcaption,
+#article-container figure.highlight .caption {
+  background: #1e1e1e !important; background-color: #1e1e1e !important;
+}
+
+/* ---- 关键字 (蓝色) ---- */
+#article-container figure.highlight .hljs-keyword,
+#article-container figure.highlight .hljs-literal,
+#article-container figure.highlight .hljs-section,
+#article-container figure.highlight .hljs-selector-tag,
+#article-container figure.highlight .hljs-doctag,
+#article-container figure.highlight .hljs-link { color: #569cd6 !important; font-weight: 400 !important; }
+
+/* ---- 字符串 (橙色) ---- */
+#article-container figure.highlight .hljs-string,
+#article-container figure.highlight .hljs-addition,
+#article-container figure.highlight .hljs-attribute,
+#article-container figure.highlight .hljs-template-variable { color: #ce9178 !important; font-weight: 400 !important; }
+
+/* ---- 注释 (绿色) ---- */
+#article-container figure.highlight .hljs-comment,
+#article-container figure.highlight .hljs-quote,
+#article-container figure.highlight .hljs-deletion { color: #6a9955 !important; font-style: italic !important; font-weight: 400 !important; }
+
+/* ---- 数字 (浅绿) ---- */
+#article-container figure.highlight .hljs-number,
+#article-container figure.highlight .hljs-symbol,
+#article-container figure.highlight .hljs-bullet,
+#article-container figure.highlight .hljs-regexp { color: #b5cea8 !important; font-weight: 400 !important; }
+
+/* ---- 参数 (浅蓝) ---- */
+#article-container figure.highlight .hljs-params { color: #9cdcfe !important; font-weight: 400 !important; }
+
+/* ---- 变量 (浅蓝) ---- */
+#article-container figure.highlight .hljs-variable { color: #9cdcfe !important; font-weight: 400 !important; }
+
+/* ---- 元数据 (蓝色) ---- */
+#article-container figure.highlight .hljs-meta,
+#article-container figure.highlight .hljs-meta-keyword { color: #569cd6 !important; font-weight: 400 !important; }
+
+/* ---- 类型/类名/内置类型 (青绿色) ---- */
+#article-container figure.highlight .hljs-title,
+#article-container figure.highlight .hljs-type,
+#article-container figure.highlight .hljs-name,
+#article-container figure.highlight .hljs-built_in { color: #4ec9b0 !important; font-weight: 400 !important; }
+
+/* ---- 函数/方法名 (黄色) - 必须放在 title 规则之后以覆盖 ---- */
+#article-container figure.highlight .hljs-function .hljs-title { color: #dcdcaa !important; font-weight: 400 !important; }
+
+/* ---- 代码块普通文本 (浅灰) ---- */
+#article-container figure.highlight,
+#article-container figure.highlight code,
+#article-container figure.highlight pre,
+#article-container figure.highlight .line,
+#article-container figure.highlight .hljs { color: #d4d4d4 !important; font-weight: 400 !important; }
+
 /* 归档 */
 .card-archive-year {
   cursor: pointer; display: flex; align-items: center; padding: 6px 4px;
@@ -273,7 +340,7 @@ figure.highlight, .code-block { border-radius: 12px; overflow: hidden; }
   .recent-post-item .recent-post-info { width: 100% !important; }
 }
 </style>
-<meta name="generator" content="Hexo 8.1.2"></head><body><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">病躺糊卢</span></a></span><div id="menus"></div></nav><div id="page-site-info"><h1 id="site-title">归档</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">全部文章 - 1</div><div class="article-sort"><div class="article-sort-item year">2026</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div><a class="article-sort-item-title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">病躺糊卢</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/bingtanghulu-lu"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/bingtanghulu-lu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a><time datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div></div></div></div><div class="card-widget card-archives">
+<meta name="generator" content="Hexo 8.1.2"></head><body><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">病躺糊卢</span></a></span><div id="menus"></div></nav><div id="page-site-info"><h1 id="site-title">归档</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">全部文章 - 2</div><div class="article-sort"><div class="article-sort-item year">2026</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-06-12T09:44:52.000Z" title="发表于 2026-06-12 17:44:52">2026-06-12</time></div><a class="article-sort-item-title" href="/2026/06/12/%E5%AD%97%E5%85%B8Dictionary%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%84%9F%E6%82%9F/" title="字典Dictionary使用与引用类型的感悟">字典Dictionary使用与引用类型的感悟</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div><a class="article-sort-item-title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">病躺糊卢</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/bingtanghulu-lu"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/bingtanghulu-lu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/%E5%AD%97%E5%85%B8Dictionary%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%84%9F%E6%82%9F/" title="字典Dictionary使用与引用类型的感悟">字典Dictionary使用与引用类型的感悟</a><time datetime="2026-06-12T09:44:52.000Z" title="发表于 2026-06-12 17:44:52">2026-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%81%EF%BC%81%EF%BC%81/" title="我的第一篇博客！！！">我的第一篇博客！！！</a><time datetime="2026-06-12T02:44:17.000Z" title="发表于 2026-06-12 10:44:17">2026-06-12</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -287,7 +354,7 @@ figure.highlight, .code-block { border-radius: 12px; overflow: hidden; }
             <span class="card-archive-list-date">
               六月 2026
             </span>
-            <span class="card-archive-list-count">1</span>
+            <span class="card-archive-list-count">2</span>
           </a>
         </li>
       
