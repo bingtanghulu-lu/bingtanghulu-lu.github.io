@@ -202,9 +202,13 @@ body { background: url('/img/top2.png') center/cover fixed no-repeat !important;
 /* 隐藏头像下方文章/标签/分类统计 */
 .card-info .site-data { display: none !important; }
 
-/* 文章正文字体黑色 */
+/* 文章正文字体：黑色 + 大一号 + 加粗 */
 #article-container, #article-container p, #article-container li,
-#article-container span, .post-content { color: #1a1a1a !important; }
+#article-container span, .post-content {
+  color: #1a1a1a !important;
+  font-size: 1.05em !important;
+  font-weight: 500 !important;
+}
 
 /* 文章内容区卡片 */
 .layout > div:first-child:not(.nc) {
