@@ -1,7 +1,11 @@
 ---
 title: Unity瓦片地图学习
 date: 2026-06-24 09:03:11
-tags:
+tags: 
+  - Unity
+  - Tilemap
+categories:
+  - Unity学习
 ---
 
 ## 如何创建瓦片地图
@@ -113,3 +117,73 @@ tags:
 然后就可以将调色板的资源加入到场景中啦，两个资源之间还能表现出高低差：
 
 {% asset_img over.png 最终效果 %}
+
+---
+
+## 使用等轴瓦片制作一个简单的伪 3D 场景
+
+首先，将上一步内容完善，搭建一个简单的沙盒，并且拖入角色 Sprite 图片：
+
+{% asset_img 01.png 搭建沙盒并拖入角色 %}
+
+可以看到场景实现了遮挡效果，但是角色与地图之间还存在渲染问题。这时我们可以选择对应的 Tilemap 对象，可以看到上面挂载的 Tilemap Renderer 组件上有 **Order in Layer** 属性，假设地图为 0 层，我们可以将角色改为 1 层，就可以实现角色在地图前显示了：
+
+{% asset_img 02.png 设置 Order in Layer %}
+
+但是当我们把角色移动至下方围墙时可以看到，并没有如我们想象中那样呈现一个正常的遮挡效果，因为此时，不管是"地面"还是"墙体"，本质上都是由同一个 Tilemap Renderer 渲染的瓦片对象，所以在同一层。但是一个 Grid（网格容器）可以同时管理多个 Tilemap 对象，也就能有多个渲染器并多层渲染。所以我们可以在 Grid 下方再次创建一个 Tilemap，专门管理要对角色进行遮盖的墙体部分，将其层级大于角色：
+
+{% asset_img 03.png 创建独立墙体 Tilemap %}
+
+使用同样的方法，我们还可以制作场景中类似植物的物品：
+
+{% asset_img 04.png 制作植物物品 %}
+
+但需要注意几点：
+
+- 记得更改对应角色和物品的中心点，尽量改为底部，并且排序方式改为 Pivot
+- 这种方式只能够在一个格子放置一个物体（如果需要在一个格子放置多个物体可以将 Sprite 图片直接拖入到场景，更改为对应层级）
+
+{% asset_img 05.png 中心点与排序设置 %}
+{% asset_img 06.gif 动态效果展示 %}
+
+搭建完成地形后，就可以为地图添加 Tilemap Collider 来实现碰撞效果（记得给角色也做对应设置：碰撞盒、刚体，取消重力）。但是如果直接添加，可以看到碰撞盒铺满了整个地图：
+
+{% asset_img 07.png 碰撞盒铺满地图 %}
+
+但其实对应等轴游戏，地面与角色之间是不需要碰撞的，否则将被一大堆碰撞盒卡死、无法动弹，所以需要把碰撞类型——地面改为 **None**，墙体改为 **Grid**。
+
+瓦片的碰撞类型有以下三种：
+
+| 碰撞类型 | 效果 | 适用场景 |
+| -------- | ---- | -------- |
+| **None** | 完全不生成碰撞体，角色、子弹可直接穿过，性能最优 | 草地、道路、水面、远景装饰、纯背景地砖 |
+| **Sprite** | 碰撞形状匹配精灵的自定义物理轮廓，可贴合不规则图形 | 不规则障碍物、悬崖、斜坡、道具石块 |
+| **Grid** | 碰撞体为标准单元格矩形，等轴地图自动适配菱形轮廓，配合 Composite Collider 可合并优化 | 方正墙体、平台、实心地板、连续大片地面 |
+
+> **注意**：使用 Sprite 类型时，精灵需要提前在 Sprite Editor 里编辑物理轮廓（Custom Physics Shape），否则自动生成的轮廓会有误差；碰撞形状不规则，物理计算开销略大于 Grid。
+
+{% asset_img 08.png 地面碰撞设为 None %}
+{% asset_img 09.png 墙体碰撞设为 Grid %}
+
+然后为角色编写一个简单的移动脚本，就完成了一个简单的等轴游戏场景搭建：
+
+```csharp
+public class PlayerObj : MonoBehaviour
+{
+    private float x;
+    private float y;
+    public float Speed;
+
+    void Update()
+    {
+        x = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Vertical");
+        transform.Translate(Vector2.right * Speed * Time.deltaTime * x);
+        transform.Translate(Vector2.up * Speed * Time.deltaTime * y);
+    }
+}
+```
+
+{% asset_img 10.gif 角色移动效果 %}
+
+不过此时玩家的头部还是会和上方地图产生碰撞，无法贴合墙壁。解决方法也很简单，去除上方墙壁的碰撞，在外围适当位置添加隐形的碰撞即可。
